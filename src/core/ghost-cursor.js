@@ -57,7 +57,7 @@ export class GhostCursor {
     // 👻 Crear icono del cursor (puntero + ghost indicator)
     this.cursorElement.innerHTML = `
       <div class="ghost-cursor-pointer"></div>
-      <div class="ghost-cursor-indicator">👻</div>
+      <div class="ghost-cursor-indicator">🤖</div>
       <div class="ghost-cursor-ripple"></div>
     `;
 
@@ -116,10 +116,10 @@ export class GhostCursor {
         left: 0;
         width: 0;
         height: 0;
-        border-left: 8px solid ${primaryColor};
-        border-top: 12px solid transparent;
-        border-bottom: 4px solid transparent;
-        transform-origin: 2px 4px;
+        border-left: 12px solid ${primaryColor};     
+        border-top: 18px solid transparent;         
+        border-bottom: 6px solid transparent;        
+        transform-origin: 3px 6px;                   
         transition: transform 0.2s ease;
       }
 
