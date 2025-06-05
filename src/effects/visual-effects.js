@@ -3,19 +3,19 @@
 // ==========================================
 
 /**
- * 👻 Configuración de efectos visuales para diferentes tipos de eventos DOM
+ * 🤖 Configuración de efectos visuales para diferentes tipos de eventos DOM
  * Cada efecto define la clase CSS a aplicar y su duración
  */
 export const VISUAL_EFFECTS_CONFIG = {
   // Eventos de click
   click: { 
-    class: 'ghost-effect-active', // 👻 CAMBIO: sea-effect-* → ghost-effect-*
+    class: 'operator-effect-active', 
     duration: 150,
     description: 'Efecto de click con escala reducida y sombra',
     trigger: 'immediate'
   },
   dblclick: { 
-    class: 'ghost-effect-active', // 👻 CAMBIO
+    class: 'operator-effect-active', // 🤖 CAMBIO
     duration: 200,
     description: 'Efecto de doble click más duradero',
     trigger: 'immediate'
@@ -23,25 +23,25 @@ export const VISUAL_EFFECTS_CONFIG = {
   
   // Eventos de mouse
   mousedown: { 
-    class: 'ghost-effect-pressed', // 👻 CAMBIO
+    class: 'operator-effect-pressed', // 🤖 CAMBIO
     duration: 100,
     description: 'Efecto al presionar el botón del mouse',
     trigger: 'immediate'
   },
   mouseup: { 
-    class: 'ghost-effect-released', // 👻 CAMBIO
+    class: 'operator-effect-released', // 🤖 CAMBIO
     duration: 50,
     description: 'Efecto al soltar el botón del mouse',
     trigger: 'immediate'
   },
   mouseenter: { 
-    class: 'ghost-effect-hover', // 👻 CAMBIO
+    class: 'operator-effect-hover', // 🤖 CAMBIO
     duration: 0,
     description: 'Efecto hover al entrar con el mouse',
     trigger: 'immediate'
   },
   mouseleave: { 
-    class: 'ghost-effect-hover', // 👻 CAMBIO
+    class: 'operator-effect-hover', // 🤖 CAMBIO
     duration: 0, 
     remove: true,
     description: 'Remover efecto hover al salir con el mouse',
@@ -50,13 +50,13 @@ export const VISUAL_EFFECTS_CONFIG = {
   
   // Eventos de foco
   focus: { 
-    class: 'ghost-effect-focused', // 👻 CAMBIO
+    class: 'operator-effect-focused', // 🤖 CAMBIO
     duration: 0,
     description: 'Efecto de elemento enfocado',
     trigger: 'immediate'
   },
   blur: { 
-    class: 'ghost-effect-focused', // 👻 CAMBIO
+    class: 'operator-effect-focused', // 🤖 CAMBIO
     duration: 0, 
     remove: true,
     description: 'Remover efecto de foco',
@@ -65,19 +65,19 @@ export const VISUAL_EFFECTS_CONFIG = {
   
   // Eventos de formulario
   submit: { 
-    class: 'ghost-effect-submitting', // 👻 CAMBIO
+    class: 'operator-effect-submitting', // 🤖 CAMBIO
     duration: 300,
     description: 'Efecto de envío de formulario',
     trigger: 'immediate'
   },
   change: {
-    class: 'ghost-effect-changed', // 👻 CAMBIO
+    class: 'operator-effect-changed', // 🤖 CAMBIO
     duration: 200,
     description: 'Efecto cuando cambia el valor de un input',
     trigger: 'immediate'
   },
   input: {
-    class: 'ghost-effect-typing', // 👻 CAMBIO
+    class: 'operator-effect-typing', // 🤖 CAMBIO
     duration: 100,
     description: 'Efecto mientras se escribe en un input',
     trigger: 'immediate'
@@ -85,13 +85,13 @@ export const VISUAL_EFFECTS_CONFIG = {
   
   // Eventos de teclado
   keydown: {
-    class: 'ghost-effect-keypress', // 👻 CAMBIO
+    class: 'operator-effect-keypress', // 🤖 CAMBIO
     duration: 80,
     description: 'Efecto al presionar una tecla',
     trigger: 'immediate'
   },
   keyup: {
-    class: 'ghost-effect-keyrelease', // 👻 CAMBIO
+    class: 'operator-effect-keyrelease', // 🤖 CAMBIO
     duration: 40,
     description: 'Efecto al soltar una tecla',
     trigger: 'immediate'
@@ -99,7 +99,7 @@ export const VISUAL_EFFECTS_CONFIG = {
   
   // Eventos de scroll
   scroll: {
-    class: 'ghost-effect-scrolling', // 👻 CAMBIO
+    class: 'operator-effect-scrolling', // 🤖 CAMBIO
     duration: 100,
     description: 'Efecto durante el scroll',
     trigger: 'immediate'
@@ -127,41 +127,41 @@ export const EFFECT_TIMINGS = {
 };
 
 /**
- * 👻 Configuración de colores para los efectos (tema fantasma)
+ * 🤖 Configuración de colores para los efectos (tema operador)
  */
 export const EFFECT_COLORS = {
-  primary: 'rgba(99, 102, 241, 0.3)',    // 👻 CAMBIO: púrpura fantasma
-  success: 'rgba(16, 185, 129, 0.3)',    // 👻 CAMBIO: verde más moderno
-  warning: 'rgba(245, 158, 11, 0.3)',    // 👻 CAMBIO: ámbar más suave
-  danger: 'rgba(239, 68, 68, 0.3)',      // 👻 CAMBIO: rojo más moderno
-  info: 'rgba(59, 130, 246, 0.3)',       // 👻 CAMBIO: azul más vibrante
-  focus: 'rgb(99, 102, 241)'             // 👻 CAMBIO: púrpura fantasma sólido
+  primary: 'rgba(104, 255, 254, 0.3)',    // 🤖 CAMBIO: cian operador
+  success: 'rgba(16, 185, 129, 0.3)',     // Verde moderno
+  warning: 'rgba(245, 158, 11, 0.3)',     // Ámbar suave
+  danger: 'rgba(239, 68, 68, 0.3)',       // Rojo moderno
+  info: 'rgba(59, 130, 246, 0.3)',        // Azul vibrante
+  focus: 'rgb(104, 255, 254)'             // 🤖 CAMBIO: cian operador sólido
 };
 
 // ==========================================
-// 👻 CONFIGURACIONES ADICIONALES PARA GHOSTCURSOR
+// 🤖 CONFIGURACIONES ADICIONALES PARA OPERATORCURSOR
 // ==========================================
 
 /**
- * Configuración de colores del cursor fantasma
+ * Configuración de colores del cursor operador
  */
-export const GHOST_CURSOR_COLORS = {
-  default: '#6366f1',         // Púrpura fantasma
+export const OPERATOR_CURSOR_COLORS = {
+  default: '#68FFFE',         // Cian operador (tu favorito)
+  cyan: '#06b6d4',            // Cian alternativo
   green: '#10b981',           // Verde esmeralda
   blue: '#3b82f6',            // Azul cielo
   purple: '#8b5cf6',          // Púrpura violeta
   pink: '#ec4899',            // Rosa vibrante
   orange: '#f59e0b',          // Ámbar
   red: '#ef4444',             // Rojo
-  cyan: '#06b6d4',            // Cian
   emerald: '#059669',         // Esmeralda oscuro
   indigo: '#4f46e5'           // Índigo
 };
 
 /**
- * Configuración de velocidades del cursor fantasma
+ * Configuración de velocidades del cursor operador
  */
-export const GHOST_CURSOR_SPEEDS = {
+export const OPERATOR_CURSOR_SPEEDS = {
   slow: 1200,      // Muy lento y dramático
   normal: 800,     // Velocidad normal
   fast: 400,       // Rápido
@@ -169,9 +169,9 @@ export const GHOST_CURSOR_SPEEDS = {
 };
 
 /**
- * Configuración de tamaños del cursor fantasma
+ * Configuración de tamaños del cursor operador
  */
-export const GHOST_CURSOR_SIZES = {
+export const OPERATOR_CURSOR_SIZES = {
   small: 20,       // Pequeño
   normal: 24,      // Normal
   large: 32,       // Grande
@@ -179,9 +179,9 @@ export const GHOST_CURSOR_SIZES = {
 };
 
 /**
- * Efectos especiales del cursor fantasma
+ * Efectos especiales del cursor operador
  */
-export const GHOST_EFFECTS = {
+export const OPERATOR_EFFECTS = {
   trail: {
     enabled: true,
     opacity: 0.6,
@@ -209,7 +209,7 @@ export const GHOST_EFFECTS = {
   },
   
   sound: {
-    enabled: false,   // Deshabilitado por defecto
+    enabled: true,    // 🤖 CAMBIO: Habilitado por defecto como prefieres
     volume: 0.1,
     clickFrequency: 800,
     errorFrequency: 400,
@@ -218,63 +218,63 @@ export const GHOST_EFFECTS = {
 };
 
 // ==========================================
-// 👻 TEMAS PREDEFINIDOS PARA GHOSTCURSOR
+// 🤖 TEMAS PREDEFINIDOS PARA OPERATORCURSOR
 // ==========================================
 
 /**
- * Temas completos para el cursor fantasma
+ * Temas completos para el cursor operador
  */
-export const GHOST_THEMES = {
-  // Tema por defecto - Púrpura fantasma
-  phantom: {
-    name: 'Phantom Purple',
-    cursor: GHOST_CURSOR_COLORS.default,
-    trail: 'rgba(99, 102, 241, 0.3)',
+export const OPERATOR_THEMES = {
+  // Tema por defecto - Cian operador
+  operator: {
+    name: 'Operator Cyan',
+    cursor: OPERATOR_CURSOR_COLORS.default,
+    trail: 'rgba(104, 255, 254, 0.3)',
     effects: EFFECT_COLORS,
-    speed: GHOST_CURSOR_SPEEDS.normal,
-    size: GHOST_CURSOR_SIZES.normal
+    speed: OPERATOR_CURSOR_SPEEDS.normal,
+    size: OPERATOR_CURSOR_SIZES.large  // 🤖 CAMBIO: Grande por defecto
   },
   
   // Tema Matrix - Verde cibernético
   matrix: {
     name: 'Matrix Green',
-    cursor: GHOST_CURSOR_COLORS.green,
+    cursor: OPERATOR_CURSOR_COLORS.green,
     trail: 'rgba(16, 185, 129, 0.3)',
     effects: {
       ...EFFECT_COLORS,
       primary: 'rgba(16, 185, 129, 0.3)',
       focus: 'rgb(16, 185, 129)'
     },
-    speed: GHOST_CURSOR_SPEEDS.fast,
-    size: GHOST_CURSOR_SIZES.normal
+    speed: OPERATOR_CURSOR_SPEEDS.fast,
+    size: OPERATOR_CURSOR_SIZES.normal
   },
   
   // Tema Ocean - Azul profundo
   ocean: {
     name: 'Ocean Blue',
-    cursor: GHOST_CURSOR_COLORS.blue,
+    cursor: OPERATOR_CURSOR_COLORS.blue,
     trail: 'rgba(59, 130, 246, 0.3)',
     effects: {
       ...EFFECT_COLORS,
       primary: 'rgba(59, 130, 246, 0.3)',
       focus: 'rgb(59, 130, 246)'
     },
-    speed: GHOST_CURSOR_SPEEDS.normal,
-    size: GHOST_CURSOR_SIZES.normal
+    speed: OPERATOR_CURSOR_SPEEDS.normal,
+    size: OPERATOR_CURSOR_SIZES.normal
   },
   
   // Tema Neon - Rosa vibrante
   neon: {
     name: 'Neon Pink',
-    cursor: GHOST_CURSOR_COLORS.pink,
+    cursor: OPERATOR_CURSOR_COLORS.pink,
     trail: 'rgba(236, 72, 153, 0.3)',
     effects: {
       ...EFFECT_COLORS,
       primary: 'rgba(236, 72, 153, 0.3)',
       focus: 'rgb(236, 72, 153)'
     },
-    speed: GHOST_CURSOR_SPEEDS.fast,
-    size: GHOST_CURSOR_SIZES.large
+    speed: OPERATOR_CURSOR_SPEEDS.fast,
+    size: OPERATOR_CURSOR_SIZES.large
   },
   
   // Tema Stealth - Gris oscuro
@@ -287,22 +287,36 @@ export const GHOST_THEMES = {
       primary: 'rgba(107, 114, 128, 0.3)',
       focus: 'rgb(107, 114, 128)'
     },
-    speed: GHOST_CURSOR_SPEEDS.slow,
-    size: GHOST_CURSOR_SIZES.small
+    speed: OPERATOR_CURSOR_SPEEDS.slow,
+    size: OPERATOR_CURSOR_SIZES.small
   },
   
   // Tema Fire - Naranja ardiente
   fire: {
     name: 'Fire Orange',
-    cursor: GHOST_CURSOR_COLORS.orange,
+    cursor: OPERATOR_CURSOR_COLORS.orange,
     trail: 'rgba(245, 158, 11, 0.3)',
     effects: {
       ...EFFECT_COLORS,
       primary: 'rgba(245, 158, 11, 0.3)',
       focus: 'rgb(245, 158, 11)'
     },
-    speed: GHOST_CURSOR_SPEEDS.fast,
-    size: GHOST_CURSOR_SIZES.normal
+    speed: OPERATOR_CURSOR_SPEEDS.fast,
+    size: OPERATOR_CURSOR_SIZES.normal
+  },
+  
+  // 🤖 Tema Robot - Especial para OperatorCursor
+  robot: {
+    name: 'Robot Tech',
+    cursor: '#00ff41',  // Verde terminal
+    trail: 'rgba(0, 255, 65, 0.3)',
+    effects: {
+      ...EFFECT_COLORS,
+      primary: 'rgba(0, 255, 65, 0.3)',
+      focus: 'rgb(0, 255, 65)'
+    },
+    speed: OPERATOR_CURSOR_SPEEDS.fast,
+    size: OPERATOR_CURSOR_SIZES.large
   }
 };
 
@@ -311,18 +325,18 @@ export const GHOST_THEMES = {
 // ==========================================
 
 /**
- * Aplicar un tema al cursor fantasma
+ * Aplicar un tema al cursor operador
  * @param {string} themeName - Nombre del tema
  * @returns {Object} - Configuración del tema
  */
-export function applyGhostTheme(themeName) {
-  const theme = GHOST_THEMES[themeName];
+export function applyOperatorTheme(themeName) {
+  const theme = OPERATOR_THEMES[themeName];
   if (!theme) {
-    console.warn(`[GhostCursor] Theme '${themeName}' not found. Available themes: ${Object.keys(GHOST_THEMES).join(', ')}`);
-    return GHOST_THEMES.phantom; // Fallback al tema por defecto
+    console.warn(`[OperatorCursor] Theme '${themeName}' not found. Available themes: ${Object.keys(OPERATOR_THEMES).join(', ')}`);
+    return OPERATOR_THEMES.operator; // Fallback al tema por defecto
   }
   
-  console.log(`[GhostCursor] 👻 Applied theme: ${theme.name}`);
+  console.log(`[OperatorCursor] 🤖 Applied theme: ${theme.name}`);
   return theme;
 }
 
@@ -331,10 +345,10 @@ export function applyGhostTheme(themeName) {
  * @returns {Array} - Lista de nombres de temas
  */
 export function getAvailableThemes() {
-  return Object.keys(GHOST_THEMES).map(key => ({
+  return Object.keys(OPERATOR_THEMES).map(key => ({
     key,
-    name: GHOST_THEMES[key].name,
-    color: GHOST_THEMES[key].cursor
+    name: OPERATOR_THEMES[key].name,
+    color: OPERATOR_THEMES[key].cursor
   }));
 }
 
@@ -347,7 +361,7 @@ export function getAvailableThemes() {
 export function createCustomTheme(name, config) {
   const customTheme = {
     name: config.name || name,
-    cursor: config.cursor || GHOST_CURSOR_COLORS.default,
+    cursor: config.cursor || OPERATOR_CURSOR_COLORS.default,
     trail: config.trail || `${config.cursor}33`, // Añadir transparencia
     effects: {
       ...EFFECT_COLORS,
@@ -355,13 +369,14 @@ export function createCustomTheme(name, config) {
       focus: config.focus || config.cursor,
       ...config.effects
     },
-    speed: config.speed || GHOST_CURSOR_SPEEDS.normal,
-    size: config.size || GHOST_CURSOR_SIZES.normal
+    speed: config.speed || OPERATOR_CURSOR_SPEEDS.normal,
+    size: config.size || OPERATOR_CURSOR_SIZES.normal
   };
   
   // Registrar tema personalizado
-  GHOST_THEMES[name] = customTheme;
+  OPERATOR_THEMES[name] = customTheme;
   
-  console.log(`[GhostCursor] 👻 Created custom theme: ${customTheme.name}`);
+  console.log(`[OperatorCursor] 🤖 Created custom theme: ${customTheme.name}`);
   return customTheme;
 }
+

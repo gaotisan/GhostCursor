@@ -1,6 +1,6 @@
 {
-  "name": "@gaotisan/ghostcursor",
-  "version": "1.0.1",
+  "name": "operator-cursor",
+  "version": "1.0.0",
   "description": "👻 A phantom cursor that navigates and interacts with web pages like a human operator",
   "main": "src/index.js",
   "type": "module",
@@ -21,7 +21,7 @@
     "access": "public"
   },
   "keywords": [
-    "ghostcursor",
+    "operator-cursor",
     "phantom-cursor",
     "web-automation",
     "browser-automation",
@@ -45,12 +45,12 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/gaotisan/GhostCursor.git"
+    "url": "git+https://github.com/gaotisan/operator-cursor.git"
   },
   "bugs": {
-    "url": "https://github.com/gaotisan/GhostCursor/issues"
+    "url": "https://github.com/gaotisan/operator-cursor/issues"
   },
-  "homepage": "https://github.com/gaotisan/GhostCursor#readme",
+  "homepage": "https://github.com/gaotisan/operator-cursor#readme",
   "engines": {
     "node": ">=14.0.0"
   },

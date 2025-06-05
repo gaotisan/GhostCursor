@@ -1,17 +1,19 @@
 // ==========================================
-// 👻 src/core/ghost-integration.js (equivalente a bot-cursor-integration.js)
+// 🤖 src/core/operator-integration.js (equivalente a ghost-integration.js)
 // ==========================================
 
+import { OperatorCursor } from './operator-cursor.js';
+
 /**
- * 👻 Integración del cursor fantasma con el sistema de efectos
- * Equivalente a BotCursorIntegration pero para GhostCursor
+ * 🤖 Integración del cursor operador con el sistema de efectos
+ * Equivalente a GhostCursorIntegration pero para OperatorCursor
  */
-export class GhostCursorIntegration {
+export class OperatorCursorIntegration {
   static instance = null;
   
   static getInstance(options = {}) {
     if (!this.instance) {
-      this.instance = new GhostCursor(options);
+      this.instance = new OperatorCursor(options);
     }
     return this.instance;
   }
@@ -84,5 +86,39 @@ export class GhostCursorIntegration {
         await new Promise(resolve => setTimeout(resolve, delay));
       }
     }
+  }
+  
+  /**
+   * 🤖 Destruir instancia y limpiar recursos
+   */
+  static destroy() {
+    if (this.instance) {
+      this.instance.destroy();
+      this.instance = null;
+    }
+  }
+  
+  /**
+   * 🤖 Verificar si hay una instancia activa
+   * @returns {boolean} - true si hay instancia activa
+   */
+  static hasActiveInstance() {
+    return this.instance !== null;
+  }
+  
+  /**
+   * 🤖 Configurar opciones globales para nuevas instancias
+   * @param {Object} options - Opciones por defecto
+   */
+  static setDefaultOptions(options) {
+    this.defaultOptions = { ...options };
+  }
+  
+  /**
+   * 🤖 Obtener configuración actual de la instancia
+   * @returns {Object|null} - Opciones de la instancia o null
+   */
+  static getCurrentConfig() {
+    return this.instance ? this.instance.options : null;
   }
 }

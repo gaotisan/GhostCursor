@@ -1,1 +1,1 @@
-# GhostCursor
+# operator-cursor

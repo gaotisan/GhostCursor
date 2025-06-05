@@ -1,10 +1,10 @@
 // ==========================================
-// 👻 src/index.js - Exportación principal de GhostCursor
+// 🤖 src/index.js - Exportación principal de OperatorCursor
 // ==========================================
 
 // Importar clases principales
-export { GhostCursor } from './core/ghost-cursor.js';
-export { GhostCursorIntegration } from './core/ghost-integration.js';
+export { OperatorCursor } from './core/operator-cursor.js';
+export { OperatorCursorIntegration } from './core/operator-integration.js';
 
 // Importar sistemas de efectos (opcional)
 export { EffectManager } from './effects/effect-manager.js';
@@ -14,15 +14,13 @@ export { EffectManager } from './effects/effect-manager.js';
 //export * from './utils/DOMUtils.js';
 
 // Exportación por defecto (la clase principal)
-export { GhostCursor as default } from './core/ghost-cursor.js';
+export { OperatorCursor as default } from './core/operator-cursor.js';
 
-// 👻 Auto-inicialización para compatibilidad con navegadores
+
+// 🤖 Auto-inicialización para compatibilidad con navegadores
 if (typeof window !== 'undefined') {
-  // Hacer GhostCursor disponible globalmente para compatibilidad
-  window.GhostCursor = window.GhostCursor || {};
-  
   // Importar dinámicamente la clase principal
-  import('./core/ghost-cursor.js').then(({ GhostCursor }) => {
-    window.GhostCursor = GhostCursor;
+  import('./core/operator-cursor.js').then(({ OperatorCursor }) => {
+    window.OperatorCursor = OperatorCursor;
   }).catch(console.error);
 }

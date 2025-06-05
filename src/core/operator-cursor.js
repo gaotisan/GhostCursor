@@ -1,12 +1,12 @@
 // ==========================================
-// 👻 src/core/ghost-cursor.js (COMPLETO)
+// 👻 src/core/operator-cursor.js (COMPLETO)
 // ==========================================
 
 /**
- * 👻 GhostCursor - A phantom cursor that navigates and interacts with web pages
+ * 👻 operator-cursor - A phantom cursor that navigates and interacts with web pages
  * Migrated and enhanced from BotCursor
  */
-export class GhostCursor {
+export class OperatorCursor {
   constructor(options = {}) {
     this.options = {
       // 🎨 Nuevo tema por defecto (púrpura en lugar de rosa)
@@ -37,7 +37,7 @@ export class GhostCursor {
     this.createCursor();
     this.injectStyles();
     if (this.options.debug) {
-      console.log('[GhostCursor] 👻 Phantom cursor initialized');
+      console.log('[OperatorCursor] 👻 Phantom cursor initialized');
     }
   }
 
@@ -46,19 +46,19 @@ export class GhostCursor {
    */
   createCursor() {
     // Remover cursor existente si existe
-    const existing = document.getElementById('ghost-cursor');
+    const existing = document.getElementById('operator-cursor');
     if (existing) existing.remove();
 
     // Crear cursor principal
     this.cursorElement = document.createElement('div');
-    this.cursorElement.id = 'ghost-cursor';
-    this.cursorElement.className = 'ghost-cursor';
+    this.cursorElement.id = 'operator-cursor';
+    this.cursorElement.className = 'operator-cursor';
     
-    // 👻 Crear icono del cursor (puntero + ghost indicator)
+    // 👻 Crear icono del cursor (puntero + bot indicator)
     this.cursorElement.innerHTML = `
-      <div class="ghost-cursor-pointer"></div>
-      <div class="ghost-cursor-indicator">🤖</div>
-      <div class="ghost-cursor-ripple"></div>
+      <div class="operator-cursor-pointer"></div>
+      <div class="operator-cursor-indicator">🤖</div>
+      <div class="operator-cursor-ripple"></div>
     `;
 
     // Posición inicial (fuera de pantalla)
@@ -72,169 +72,169 @@ export class GhostCursor {
    * Inyectar estilos CSS para el cursor fantasma
    */
   injectStyles() {
-    if (document.getElementById('ghost-cursor-styles')) return;
+    if (document.getElementById('operator-cursor-styles')) return;
 
     const style = document.createElement('style');
-    style.id = 'ghost-cursor-styles';
+    style.id = 'operator-cursor-styles';
     
     // 🎨 Colores dinámicos
     const primaryColor = this.options.cursorColor;
     const primaryRGB = this.hexToRgb(primaryColor);
     const lighterColor = this.lightenColor(primaryColor, 20);
     
-    style.textContent = `
-      /* 👻 Ghost Cursor Principal */
-      .ghost-cursor {
-        position: fixed;
-        width: ${this.options.cursorSize}px;
-        height: ${this.options.cursorSize}px;
-        pointer-events: none;
-        z-index: 999999;
-        transition: all ${this.options.animationSpeed}ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
-        opacity: 0;
-        transform: scale(0);
-      }
+   style.textContent = `
+  /* 🤖 Operator Cursor Principal */
+  .operator-cursor {
+    position: fixed;
+    width: ${this.options.cursorSize}px;
+    height: ${this.options.cursorSize}px;
+    pointer-events: none;
+    z-index: 999999;
+    transition: all ${this.options.animationSpeed}ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    opacity: 0;
+    transform: scale(0);
+  }
 
-      .ghost-cursor.visible {
-        opacity: 1;
-        transform: scale(1);
-      }
+  .operator-cursor.visible {
+    opacity: 1;
+    transform: scale(1);
+  }
 
-      .ghost-cursor.moving {
-        transition-duration: ${this.options.animationSpeed}ms;
-      }
+  .operator-cursor.moving {
+    transition-duration: ${this.options.animationSpeed}ms;
+  }
 
-      .ghost-cursor.clicking {
-        transform: scale(1.3);
-        transition-duration: ${this.options.clickDuration}ms;
-      }
+  .operator-cursor.clicking {
+    transform: scale(1.3);
+    transition-duration: ${this.options.clickDuration}ms;
+  }
 
-      /* Puntero del cursor fantasma */
-      .ghost-cursor-pointer {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 0;
-        height: 0;
-        border-left: 12px solid ${primaryColor};     
-        border-top: 18px solid transparent;         
-        border-bottom: 6px solid transparent;        
-        transform-origin: 3px 6px;                   
-        transition: transform 0.2s ease;
-      }
+  /* Puntero del cursor operador */
+  .operator-cursor-pointer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-left: 12px solid ${primaryColor};     
+    border-top: 18px solid transparent;         
+    border-bottom: 6px solid transparent;        
+    transform-origin: 3px 6px;                   
+    transition: transform 0.2s ease;
+  }
 
-      /* 👻 Indicador fantasma */
-      .ghost-cursor-indicator {
-        position: absolute;
-        top: -10px;
-        right: -10px;
-        width: 20px;
-        height: 20px;
-        background: linear-gradient(135deg, ${primaryColor}, ${lighterColor});
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 12px;
-        color: white;
-        font-weight: bold;
-        box-shadow: 0 2px 8px rgba(${primaryRGB}, 0.4);
-        animation: ghost-pulse 2s infinite;
-      }
+  /* 🤖 Indicador operador */
+  .operator-cursor-indicator {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    width: 20px;
+    height: 20px;
+    background: linear-gradient(135deg, ${primaryColor}, ${lighterColor});
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    color: white;
+    font-weight: bold;
+    box-shadow: 0 2px 8px rgba(${primaryRGB}, 0.4);
+    animation: operator-pulse 2s infinite;
+  }
 
-      /* Efecto ripple fantasma */
-      .ghost-cursor-ripple {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        width: 40px;
-        height: 40px;
-        border: 2px solid ${primaryColor};
-        border-radius: 50%;
-        transform: translate(-50%, -50%) scale(0);
-        opacity: 0;
-        transition: all 0.3s ease;
-      }
+  /* Efecto ripple operador */
+  .operator-cursor-ripple {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 40px;
+    height: 40px;
+    border: 2px solid ${primaryColor};
+    border-radius: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0;
+    transition: all 0.3s ease;
+  }
 
-      .ghost-cursor.clicking .ghost-cursor-ripple {
-        transform: translate(-50%, -50%) scale(1);
-        opacity: 0.6;
-      }
+  .operator-cursor.clicking .operator-cursor-ripple {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.6;
+  }
 
-      /* Rastro del cursor fantasma */
-      .ghost-cursor-trail {
-        position: fixed;
-        width: 4px;
-        height: 4px;
-        background: ${this.options.trailColor};
-        border-radius: 50%;
-        pointer-events: none;
-        z-index: 999998;
-        animation: ghost-trail-fade 0.8s ease-out forwards;
-      }
+  /* Rastro del cursor operador */
+  .operator-cursor-trail {
+    position: fixed;
+    width: 4px;
+    height: 4px;
+    background: ${this.options.trailColor};
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 999998;
+    animation: operator-trail-fade 0.8s ease-out forwards;
+  }
 
-      /* Estados especiales */
-      .ghost-cursor.hovering .ghost-cursor-pointer {
-        transform: scale(1.1);
-        filter: drop-shadow(0 0 8px ${primaryColor});
-      }
+  /* Estados especiales */
+  .operator-cursor.hovering .operator-cursor-pointer {
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 8px ${primaryColor});
+  }
 
-      .ghost-cursor.typing .ghost-cursor-indicator {
-        animation: ghost-typing-pulse 0.5s infinite alternate;
-      }
+  .operator-cursor.typing .operator-cursor-indicator {
+    animation: operator-typing-pulse 0.5s infinite alternate;
+  }
 
-      /* 👻 Animaciones fantasma */
-      @keyframes ghost-pulse {
-        0%, 100% { transform: scale(1); }
-        50% { transform: scale(1.1); }
-      }
+  /* 🤖 Animaciones operador */
+  @keyframes operator-pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+  }
 
-      @keyframes ghost-trail-fade {
-        0% { opacity: 0.6; transform: scale(1); }
-        100% { opacity: 0; transform: scale(0); }
-      }
+  @keyframes operator-trail-fade {
+    0% { opacity: 0.6; transform: scale(1); }
+    100% { opacity: 0; transform: scale(0); }
+  }
 
-      @keyframes ghost-typing-pulse {
-        0% { 
-          transform: scale(1); 
-          background: linear-gradient(135deg, ${primaryColor}, ${lighterColor}); 
-        }
-        100% { 
-          transform: scale(1.2); 
-          background: linear-gradient(135deg, #10b981, #34d399); 
-        }
-      }
+  @keyframes operator-typing-pulse {
+    0% { 
+      transform: scale(1); 
+      background: linear-gradient(135deg, ${primaryColor}, ${lighterColor}); 
+    }
+    100% { 
+      transform: scale(1.2); 
+      background: linear-gradient(135deg, #10b981, #34d399); 
+    }
+  }
 
-      /* Efectos especiales para diferentes acciones */
-      .ghost-cursor.success .ghost-cursor-indicator {
-        background: linear-gradient(135deg, #10b981, #34d399);
-        animation: ghost-success-bounce 0.6s ease;
-      }
+  /* Efectos especiales para diferentes acciones */
+  .operator-cursor.success .operator-cursor-indicator {
+    background: linear-gradient(135deg, #10b981, #34d399);
+    animation: operator-success-bounce 0.6s ease;
+  }
 
-      .ghost-cursor.error .ghost-cursor-indicator {
-        background: linear-gradient(135deg, #ef4444, #f87171);
-        animation: ghost-error-shake 0.4s ease;
-      }
+  .operator-cursor.error .operator-cursor-indicator {
+    background: linear-gradient(135deg, #ef4444, #f87171);
+    animation: operator-error-shake 0.4s ease;
+  }
 
-      @keyframes ghost-success-bounce {
-        0%, 100% { transform: scale(1); }
-        50% { transform: scale(1.4); }
-      }
+  @keyframes operator-success-bounce {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.4); }
+  }
 
-      @keyframes ghost-error-shake {
-        0%, 100% { transform: translateX(0); }
-        25% { transform: translateX(-2px); }
-        75% { transform: translateX(2px); }
-      }
+  @keyframes operator-error-shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-2px); }
+    75% { transform: translateX(2px); }
+  }
 
-      /* Responsive */
-      @media (max-width: 768px) {
-        .ghost-cursor {
-          width: ${Math.max(16, this.options.cursorSize * 0.8)}px;
-          height: ${Math.max(16, this.options.cursorSize * 0.8)}px;
-        }
-      }
-    `;
+  /* Responsive */
+  @media (max-width: 768px) {
+    .operator-cursor {
+      width: ${Math.max(16, this.options.cursorSize * 0.8)}px;
+      height: ${Math.max(16, this.options.cursorSize * 0.8)}px;
+    }
+  }
+`;
 
     document.head.appendChild(style);
   }
@@ -267,7 +267,7 @@ export class GhostCursor {
   async moveToElement(target, options = {}) {
     const element = typeof target === 'string' ? document.querySelector(target) : target;
     if (!element) {
-      console.warn('[GhostCursor] Elemento no encontrado:', target);
+      console.warn('[OperatorCursor] Elemento no encontrado:', target);
       return Promise.reject('Elemento no encontrado');
     }
 
@@ -314,7 +314,7 @@ export class GhostCursor {
       }, this.options.animationSpeed);
 
       if (this.options.debug) {
-        console.log(`[GhostCursor] Moviendo a (${x}, ${y})`);
+        console.log(`[OperatorCursor] Moviendo a (${x}, ${y})`);
       }
     });
   }
@@ -347,7 +347,7 @@ export class GhostCursor {
         }, this.options.clickDuration);
 
         if (this.options.debug) {
-          console.log(`[GhostCursor] Realizando ${clickType}`);
+          console.log(`[OperatorCursor] Realizando ${clickType}`);
         }
       }, this.options.hoverDelay);
     });
@@ -382,7 +382,7 @@ export class GhostCursor {
     this.cursorElement.classList.remove('typing');
     
     if (this.options.debug) {
-      console.log(`[GhostCursor] Terminó de escribir: "${text}"`);
+      console.log(`[OperatorCursor] Terminó de escribir: "${text}"`);
     }
   }
 
@@ -411,7 +411,7 @@ export class GhostCursor {
    */
   createTrail(x, y) {
     const trail = document.createElement('div');
-    trail.className = 'ghost-cursor-trail';
+    trail.className = 'operator-cursor-trail';
     trail.style.left = `${x}px`;
     trail.style.top = `${y}px`;
     
@@ -470,16 +470,16 @@ export class GhostCursor {
       this.cursorElement.remove();
     }
     
-    const styles = document.getElementById('ghost-cursor-styles');
+    const styles = document.getElementById('operator-cursor-styles');
     if (styles) {
       styles.remove();
     }
     
     // Limpiar trails
-    document.querySelectorAll('.ghost-cursor-trail').forEach(trail => trail.remove());
+    document.querySelectorAll('.operator-cursor-trail').forEach(trail => trail.remove());
     
     if (this.options.debug) {
-      console.log('[GhostCursor] Sistema destruido');
+      console.log('[OperatorCursor] Sistema destruido');
     }
   }
 
