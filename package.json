@@ -1,21 +1,11 @@
 {
-  "name": "ghostcursor",
-  "version": "1.0.0",
+  "name": "@gaotisan/ghostcursor",
+  "version": "1.0.1",
   "description": "👻 A phantom cursor that navigates and interacts with web pages like a human operator",
   "main": "src/index.js",
   "type": "module",
-  "exports": {
-    ".": "./src/index.js",
-    "./cursor": "./src/core/ghost-cursor.js",
-    "./navigator": "./src/core/navigator.js",
-    "./dispatcher": "./src/core/event-dispatcher.js",
-    "./effects": "./src/effects/effect-manager.js",
-    "./utils": "./src/utils/dom-utils.js"
-  },
   "files": [
     "src/",
-    "examples/",
-    "docs/",
     "README.md",
     "LICENSE",
     "CHANGELOG.md"
@@ -26,6 +16,9 @@
     "lint": "echo \"Linting coming soon\"",
     "build": "echo \"ES modules - no build needed\"",
     "prepublishOnly": "npm test"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "keywords": [
     "ghostcursor",
@@ -48,16 +41,16 @@
     "frontend",
     "dom-manipulation"
   ],
-  "author": "Tu Nombre <tu.email@example.com>",
+  "author": "Gaotisan <tu.email@ejemplo.com>",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/TU-USUARIO/ghostcursor.git"
+    "url": "git+https://github.com/gaotisan/GhostCursor.git"
   },
   "bugs": {
-    "url": "https://github.com/TU-USUARIO/ghostcursor/issues"
+    "url": "https://github.com/gaotisan/GhostCursor/issues"
   },
-  "homepage": "https://github.com/TU-USUARIO/ghostcursor#readme",
+  "homepage": "https://github.com/gaotisan/GhostCursor#readme",
   "engines": {
     "node": ">=14.0.0"
   },
